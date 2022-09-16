@@ -168,7 +168,7 @@ RUN;
 ************************************************************************************************************************************;
 
 PROC SGPLOT DATA = PROJECT1.MERGEDINC;
-	TITLE "Net Income Per Capita 1980-2019";
+	TITLE "Net Income Per Capita 1970-2018";
 	LOESS X = YEAR Y = INCOME/
 						GROUP = REGION_CODE;
 RUN;
@@ -181,10 +181,10 @@ PROC MEANS DATA = PROJECT1.MERGEDINC MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC
 RUN;
 
 PROC MEANS DATA = PROJECT1.MERGEDINC MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
-	TITLE "Net Income Per Capita 2000-2019";
+	TITLE "Net Income Per Capita 2000-2018";
 	CLASS REGION_CODE;
 	VAR INCOME;
-	WHERE (YEAR BETWEEN 2000 AND 2019);
+	WHERE (YEAR BETWEEN 2000 AND 2018);
 RUN;
 
 ************************************************************************************************************************************
