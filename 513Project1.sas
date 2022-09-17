@@ -168,20 +168,27 @@ RUN;
 ************************************************************************************************************************************;
 
 PROC SGPLOT DATA = PROJECT1.MERGEDINC;
-	TITLE "Net Income Per Capita 1970-2018";
+	TITLE "Net Income Per Capita EURO and ASIA Regions 1970-2018";
 	LOESS X = YEAR Y = INCOME/
 						GROUP = REGION_CODE;
 RUN;
 
 PROC MEANS DATA = PROJECT1.MERGEDINC MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
-	TITLE "Net Income Per Capita 1980-1999";
+	TITLE "Net Income Per Capita EURO and ASIA Regions 1980-1999";
+	CLASS REGION_CODE;
+	VAR INCOME;
+	WHERE (YEAR BETWEEN 1970 AND 1979);
+RUN;
+
+PROC MEANS DATA = PROJECT1.MERGEDINC MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
+	TITLE "Net Income Per Capita EURO and ASIA Regions 1980-1999";
 	CLASS REGION_CODE;
 	VAR INCOME;
 	WHERE (YEAR BETWEEN 1980 AND 1999);
 RUN;
 
 PROC MEANS DATA = PROJECT1.MERGEDINC MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
-	TITLE "Net Income Per Capita 2000-2018";
+	TITLE "Net Income Per Capita EURO and ASIA Regions 2000-2018";
 	CLASS REGION_CODE;
 	VAR INCOME;
 	WHERE (YEAR BETWEEN 2000 AND 2018);
@@ -193,23 +200,30 @@ RUN;
 ************************************************************************************************************************************;
 
 PROC SGPLOT DATA = PROJECT1.MergedCO2;
-	TITLE "CO2 Emissions Per Capita 1980-2019";
+	TITLE "CO2 Emissions Per Capita EURO and ASIA Regions 1960-2016";
 	LOESS X = YEAR Y = CO2/
 						GROUP = REGION_CODE;
 RUN;
 
 PROC MEANS DATA = PROJECT1.MergedCO2 MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
-	TITLE "CO2 Emmisions per Capita 1980-1999";
+	TITLE "CO2 Emmisions per Capita EURO and ASIA Regions 1960-1979";
+	CLASS REGION_CODE;
+	VAR CO2;
+	WHERE (YEAR BETWEEN 1960 AND 1979);
+RUN;
+
+PROC MEANS DATA = PROJECT1.MergedCO2 MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
+	TITLE "CO2 Emmisions per Capita EURO and ASIA Regions 1980-1999";
 	CLASS REGION_CODE;
 	VAR CO2;
 	WHERE (YEAR BETWEEN 1980 AND 1999);
 RUN;
 
 PROC MEANS DATA = PROJECT1.MergedCO2 MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
-	TITLE "CO2 Emmisions per Capita 2000-2019";
+	TITLE "CO2 Emmisions per Capita EURO and ASIA Regions 2000-2016";
 	CLASS REGION_CODE;
 	VAR CO2;
-	WHERE (YEAR BETWEEN 2000 AND 2019);
+	WHERE (YEAR BETWEEN 2000 AND 2016);
 RUN;
 
 
@@ -219,20 +233,27 @@ RUN;
 ************************************************************************************************************************************;
 
 PROC SGPLOT DATA = PROJECT1.MergedURBAN;
-	TITLE "Urban Population 1980-2019";
+	TITLE "Urban Population EURO and ASIA Regions 1960-2019";
 	LOESS X = YEAR Y = URBAN/
 						GROUP = REGION_CODE;
 RUN;
 
 PROC MEANS DATA = PROJECT1.MergedURBAN MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
-	TITLE "Urban population (% of total population) 1980-1999";
+	TITLE "Urban population (% of total population) EURO and ASIA Regions 1960-1979";
+	CLASS REGION_CODE;
+	VAR URBAN;
+	WHERE (YEAR BETWEEN 1960 AND 1979);
+RUN;
+
+PROC MEANS DATA = PROJECT1.MergedURBAN MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
+	TITLE "Urban population (% of total population) EURO and ASIA Regions 1980-1999";
 	CLASS REGION_CODE;
 	VAR URBAN;
 	WHERE (YEAR BETWEEN 1980 AND 1999);
 RUN;
 
 PROC MEANS DATA = PROJECT1.MergedURBAN MEAN VAR STDDEV MIN Q1 MEDIAN Q3 MAX MAXDEC = 2;
-	TITLE "Urban population 2000-2019";
+	TITLE "Urban population EURO and ASIA Regions 2000-2019";
 	CLASS REGION_CODE;
 	VAR URBAN;
 	WHERE (YEAR BETWEEN 2000 AND 2019);
